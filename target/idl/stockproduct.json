@@ -1,0 +1,171 @@
+{
+  "address": "FzTiYgFWF7JGm8KKPJWUABgMU47sa7QKqHfMeNLE8mDt",
+  "metadata": {
+    "name": "stockproduct",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "check_store",
+      "discriminator": [
+        151,
+        116,
+        119,
+        85,
+        88,
+        212,
+        169,
+        66
+      ],
+      "accounts": [
+        {
+          "name": "store_account",
+          "writable": true
+        }
+      ],
+      "args": [],
+      "returns": {
+        "vec": {
+          "defined": {
+            "name": "Store"
+          }
+        }
+      }
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "store_account",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "record_incoming",
+      "discriminator": [
+        113,
+        98,
+        185,
+        213,
+        169,
+        36,
+        196,
+        243
+      ],
+      "accounts": [
+        {
+          "name": "store_account",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "item",
+          "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "i64"
+        },
+        {
+          "name": "entrydate",
+          "type": "i64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "StoreAccount",
+      "discriminator": [
+        158,
+        151,
+        50,
+        63,
+        120,
+        194,
+        135,
+        114
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NoProducts",
+      "msg": "No products in store."
+    }
+  ],
+  "types": [
+    {
+      "name": "Store",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "item",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "type": "i64"
+          },
+          {
+            "name": "entrydate",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StoreAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "products",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Store"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
