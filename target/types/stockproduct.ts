@@ -5,7 +5,7 @@
  * IDL can be found at `target/idl/stockproduct.json`.
  */
 export type Stockproduct = {
-  "address": "865m9ePhc85sKxN5LgTzYkxG3hQWiwgfxfuzGQUjjiCM",
+  "address": "CnK6kEh35cwkd1CSHpfVmtqNpe6cmNnnr3t6odj27nfi",
   "metadata": {
     "name": "stockproduct",
     "version": "0.1.0",
@@ -28,7 +28,36 @@ export type Stockproduct = {
       "accounts": [
         {
           "name": "storeAccount",
-          "writable": true
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  111,
+                  114,
+                  101,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "signer": true
         }
       ],
       "args": [],
@@ -56,7 +85,32 @@ export type Stockproduct = {
         {
           "name": "storeAccount",
           "writable": true,
-          "signer": true
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  111,
+                  114,
+                  101,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
         },
         {
           "name": "user",
@@ -68,7 +122,12 @@ export type Stockproduct = {
           "address": "11111111111111111111111111111111"
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
     },
     {
       "name": "recordIncoming",
@@ -85,7 +144,37 @@ export type Stockproduct = {
       "accounts": [
         {
           "name": "storeAccount",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  111,
+                  114,
+                  101,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "signer": true
         }
       ],
       "args": [
@@ -127,7 +216,7 @@ export type Stockproduct = {
     {
       "code": 6000,
       "name": "noProducts",
-      "msg": "No products in store."
+      "msg": "No Products in Store."
     }
   ],
   "types": [
@@ -169,6 +258,10 @@ export type Stockproduct = {
                 }
               }
             }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
           }
         ]
       }

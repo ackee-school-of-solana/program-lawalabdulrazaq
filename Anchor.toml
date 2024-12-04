@@ -6,7 +6,7 @@ solana_version = "2.0.17"
 seeds = false
 skip-lint = false
 [programs.localnet]
-bookeeper = "F6NKeaoPbchYnbcJZ5YSAqfMcHuP7GLExTuDK3qmgtgW"
+stockproduct = "CnK6kEh35cwkd1CSHpfVmtqNpe6cmNnnr3t6odj27nfi"
 
 [registry]
 url = "https://api.apr.dev"
@@ -16,4 +16,4 @@ cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests//*.ts"
+test = "yarn run ts-mocha 'tests/**/*.ts' -p ./tsconfig.json -t 1000000"

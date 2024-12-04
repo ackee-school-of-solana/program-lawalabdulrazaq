@@ -1,5 +1,5 @@
 {
-  "address": "FzTiYgFWF7JGm8KKPJWUABgMU47sa7QKqHfMeNLE8mDt",
+  "address": "CnK6kEh35cwkd1CSHpfVmtqNpe6cmNnnr3t6odj27nfi",
   "metadata": {
     "name": "stockproduct",
     "version": "0.1.0",
@@ -22,7 +22,36 @@
       "accounts": [
         {
           "name": "store_account",
-          "writable": true
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  111,
+                  114,
+                  101,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "signer": true
         }
       ],
       "args": [],
@@ -50,7 +79,32 @@
         {
           "name": "store_account",
           "writable": true,
-          "signer": true
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  111,
+                  114,
+                  101,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
         },
         {
           "name": "user",
@@ -62,7 +116,12 @@
           "address": "11111111111111111111111111111111"
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
     },
     {
       "name": "record_incoming",
@@ -79,7 +138,37 @@
       "accounts": [
         {
           "name": "store_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  111,
+                  114,
+                  101,
+                  95,
+                  97,
+                  99,
+                  99,
+                  111,
+                  117,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "signer": true
         }
       ],
       "args": [
@@ -121,7 +210,7 @@
     {
       "code": 6000,
       "name": "NoProducts",
-      "msg": "No products in store."
+      "msg": "No Products in Store."
     }
   ],
   "types": [
@@ -163,6 +252,10 @@
                 }
               }
             }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
           }
         ]
       }
